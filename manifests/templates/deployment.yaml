@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: miniproject
+  labels:
+    app: miniproject
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: miniproject
+  template:
+    metadata:
+      labels:
+        app: miniproject
+    spec:
+      containers:
+        - name: miniproject
+          image: docker.io/phengbunath/miniproject:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
